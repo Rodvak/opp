@@ -1,0 +1,2 @@
+def FunctionName(args):
+    pass
