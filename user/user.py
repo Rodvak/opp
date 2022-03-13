@@ -42,4 +42,4 @@ Daniel.make_withdrawl(3000)
 Daniel.display_user_balance()
 
 
-Daniel.transfer_money(400, Alex)
+Alex.transfer_money(400, Daniel)

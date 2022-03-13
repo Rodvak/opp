@@ -9,7 +9,7 @@ class bank_account:
         sum=0
         for account in cls.all_accounts:
             sum=account.balance
-            print(f"Account Balance : ${sum}")
+            print(f"Your Balance is ${sum}")
         return sum
     def deposit(self, amount):
         self.balance += amount
@@ -28,10 +28,24 @@ class bank_account:
         if self.balance>0:
             self.balance += (self.balance * self.int_rate)
         return self
-        
-First_Account=bank_account()
-Second_Account=bank_account()
+    
+class user:
+    def __init__(self, name):
+        self.name = name
+        self.account = bank_account(int_rate=0.01, balance=0)
+    def deposit(self, amount):
+        self.account.deposit(amount)
+        return self
+    def withdraw(self, amount):
+        self.account.withdraw(amount)
+        return self
+    def display_account_info(self):
+        self.account.display_account_info()
+        return self
 
-First_Account.deposit(100).deposit(100).deposit(100).withdraw(350).yield_interest()
-Second_Account.deposit(100).deposit(400).withdraw(50).withdraw(50).withdraw(50).withdraw(50).yield_interest()
+Checking=user("Alex")
+Saving=user("Alex")
+
+Checking.deposit(100).deposit(100).deposit(100).withdraw(350)
+Saving.deposit(100).deposit(400).withdraw(50).withdraw(50).withdraw(50).withdraw(50)
 bank_account.all_instances()
